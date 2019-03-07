@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-export default function NavButton() {
+import { FaAlignLeft } from "react-icons/fa";
+export default function NavButton({ toggleNavbar }) {
   return (
-    <NavWrapper onClick={() => console.log("hello")}>
-      <i className="fas fa-bars" />
+    <NavWrapper onClick={toggleNavbar}>
+      <FaAlignLeft />
     </NavWrapper>
   );
 }
