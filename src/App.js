@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
 
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavButton from "./components/Globals/NavButton";
+import Sidebar from "./components/Globals/Sidebar";
+import Home from "./components/Pages/HomePage/Home";
+import Rooms from "./components/Pages/RoomsPage/Rooms";
+import SingleRoom from "./components/Pages/SingleRoom/Single";
+import Default from "./components/Pages/Default";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <NavButton />
+        {/* <Sidebar /> */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/rooms" component={Rooms} />
+          <Route path="/room" component={SingleRoom} />
+          <Route component={Default} />
+        </Switch>
+      </>
     );
   }
 }
