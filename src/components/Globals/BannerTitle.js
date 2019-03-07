@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-export default function BannerTitle({ title, subtitle }) {
+import { Link } from "react-router-dom";
+export default function BannerTitle() {
   return (
     <TitleWrapper className="col text-center">
-      <h1 className="text-capitalize display-4 text-white mb-3">{title}</h1>
+      <h1 className="text-capitalize display-4 text-white mb-3">
+        luxury hotel
+      </h1>
       <div className="title-underline mb-4" />
-      <h3 className="text-white"> Luxury Rooms Starting at $99</h3>
+      <h4 className="text-white">Rooms Starting at $99</h4>
+      <Link to="/rooms" className="btn-custom mt-4">
+        explore rooms
+      </Link>
     </TitleWrapper>
   );
 }
@@ -13,7 +19,7 @@ export default function BannerTitle({ title, subtitle }) {
 const TitleWrapper = styled.div`
   letter-spacing: var(--letterSpacing);
   .title-underline {
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
     height: 4px;
     background: var(--primaryColor);

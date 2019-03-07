@@ -1,16 +1,19 @@
 import React, { Component } from "react";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Switch, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import RoomsPage from "./pages/RoomsPage";
+import SingleRoomPage from "./pages/SingleRoomPage";
+import DefaultPage from "./pages/DefaultPage";
+
 import NavButton from "./components/Globals/NavButton";
 import Navbar from "./components/Globals/Navbar";
 import { navLinks } from "./tempLinks";
 
-import { Switch, Route } from "react-router-dom";
-import Home from "./components/Pages/HomePage/Home";
-import Rooms from "./components/Pages/RoomsPage/Rooms";
-import SingleRoom from "./components/Pages/SingleRoom/Single";
-import Default from "./components/Pages/Default";
 class App extends Component {
   state = {
     showNavbar: false,
@@ -31,10 +34,12 @@ class App extends Component {
           navLinks={this.state.navLinks}
         />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/rooms" component={Rooms} />
-          <Route path="/room" component={SingleRoom} />
-          <Route component={Default} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/services" component={ServicesPage} />
+          <Route path="/rooms" component={RoomsPage} />
+          <Route path="/rooms/:id" component={SingleRoomPage} />
+          <Route component={DefaultPage} />
         </Switch>
       </>
     );

@@ -12,3 +12,25 @@ body {
   background: var(--primaryWhite) !important;
   color: var(--primaryBlack) !important;
 }
+.letter-spacing {
+  letter-spacing: var(--letterSpacing);
+}
+.text-custom {
+  color: var(--primaryColor);
+}
+.btn-custom {
+  display: inline-block;
+  background: var(--primaryColor);
+  outline: 0.15rem solid var(--primaryColor);
+  outline-offset: 4px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: var(--primaryBlack);
+  font-weight: bold;
+  transition: var(--primaryTransition);
+}
+.btn-custom:hover {
+  background: transparent;
+  color: var(--primaryColor);
+  text-decoration: none;
+}

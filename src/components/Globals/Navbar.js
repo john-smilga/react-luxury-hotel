@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaTimes } from "react-icons/fa";
+import PropTypes from "prop-types";
 export default class Navbar extends Component {
   render() {
     const { toggleNavbar, showNavbar, navLinks } = this.props;
+    console.log(this.props);
+
     return (
       <NavWrapper
         isOpen={showNavbar}
-        className="d-flex align-items-center justify-content-center"
+        className="d-flex align-items-center justify-content-center letter-spacing"
         onClick={toggleNavbar}
       >
         <nav>
@@ -26,6 +28,12 @@ export default class Navbar extends Component {
     );
   }
 }
+
+Navbar.propTypes = {
+  showNavbar: PropTypes.bool.isRequired,
+  toggleNavbar: PropTypes.func.isRequired,
+  navLinks: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 const NavWrapper = styled.section`
   position: fixed;
@@ -52,7 +60,6 @@ const NavWrapper = styled.section`
     text-transform: uppercase;
     color: var(--primaryBlack);
     transition: var(--primaryTransition);
-    letter-spacing: var(--letterSpacing);
     &:hover {
       color: var(--primaryColor);
       text-decoration: none;
